@@ -34,7 +34,7 @@ Dim ticker_volume As LongLong
 ticker_volume = 0
 
 'Keep track of location of each ticker name in summary table
-Dim summary_row As Long
+Dim summary_row As Integer
 summary_row = 2
 
 Dim rowcount As Double
@@ -83,15 +83,15 @@ For i = 2 To rowcount
             'add to volume
             ticker_volume = ticker_volume + Cells(i, 7).Value
             
-            
+          
     End If
 
-
+    Range("K2:K" & i).NumberFormat = "0.00%"
 Next i
 
 end_summary = Cells(Rows.Count, 10).End(xlUp).Row
 'change formatting to percent
-Range("K2" & end_summary).NumberFormat = "0.00%"
+'Range("K2:K" & i).NumberFormat = "0.00%"
 
 
 'conditional formating to color green or red based on positive or nagative yearly change
